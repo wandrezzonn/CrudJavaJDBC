@@ -10,9 +10,9 @@ import main.connection.ConexaoBD;
 
 public class UsuarioDAO {
 
-	Connection conn = null;
-	ConexaoBD conexao = new ConexaoBD();
-	PreparedStatement pstm;
+	private Connection conn = null;
+	private ConexaoBD conexao = new ConexaoBD();
+	private PreparedStatement pstm;
 	
 	public UsuarioDAO() {
 		
