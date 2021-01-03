@@ -8,12 +8,10 @@ public class Main {
 	public static void main(String[] args) {
 
 		Usuario u = new Usuario();
-		u.setId(2);
-		u.setNome("Marly Rocha");
-		u.setUsuario("marly");
-		u.setSenha("789654");
+		u.setId(1);
+		
 		UsuarioDAO dao = new UsuarioDAO();
-	dao.atualizar(u);
+	
 		
 		for(Usuario usu: dao.buscar()) {
 			System.out.println("ID: " +usu.getId());
@@ -21,6 +19,9 @@ public class Main {
 			System.out.println("Usuario: " +usu.getUsuario());
 			System.out.println("Senha: " +usu.getSenha());
 		}
+		
+		System.out.println("Busca por ID");
+		System.out.println(dao.buscarPorId(u).getNome());
 
 	}
 

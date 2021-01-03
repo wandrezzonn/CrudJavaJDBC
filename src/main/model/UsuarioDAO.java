@@ -3,6 +3,7 @@ package main.model;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -80,5 +81,29 @@ public class UsuarioDAO {
 		
 		return usuarios;
 		
+	}
+	
+	public Usuario buscarPorId(Usuario usuario) {
+		String sql = "Select * from usuario where id=?";
+		Usuario usu = new Usuario();
+		ResultSet res;
+		conn = conexao.conectar();
+		try {
+			pstm = conn.prepareStatement(sql);
+			pstm.setInt(1, usuario.getId());
+			res = pstm.executeQuery();
+			while(res.next()) {
+				usu.setNome(res.getString("nome"));
+				usu.setUsuario(res.getString("usuario"));
+				
+			}
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+			
+		}
+		
+		return usu;
 	}
 }
