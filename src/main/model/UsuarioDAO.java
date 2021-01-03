@@ -37,12 +37,19 @@ public class UsuarioDAO {
 	}
 	
 	public void atualizar(Usuario usuario) {
-		String sql = "UPDATE usuario WHERE id=?";
+		String sql = "UPDATE usuario set nome = ?, senha = ?, usuario = ?  WHERE id=?";
 		try {
-			
-			
+			conn = conexao.conectar();
+			pstm = conn.prepareStatement(sql);
+			pstm.setString(1, usuario.getNome());
+			pstm.setString(2, usuario.getSenha());
+			pstm.setString(3, usuario.getUsuario());
+			pstm.setInt(4, usuario.getId());
+			pstm.execute();
+			pstm.close();
+			conn.close();
 		} catch (Exception e) {
-			
+			System.out.println("Erro na atualização " +e.getMessage());
 		}
 	}
 	
