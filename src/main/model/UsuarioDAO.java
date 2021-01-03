@@ -36,6 +36,16 @@ public class UsuarioDAO {
 		
 	}
 	
+	public void atualizar(Usuario usuario) {
+		String sql = "UPDATE usuario WHERE id=?";
+		try {
+			
+			
+		} catch (Exception e) {
+			
+		}
+	}
+	
 	
 	public List<Usuario> buscar(){
 		String sql = "SELECT * FROM usuario";
