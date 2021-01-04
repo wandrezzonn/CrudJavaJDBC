@@ -12,7 +12,7 @@ public class Main {
 		
 		UsuarioDAO dao = new UsuarioDAO();
 	
-		
+		System.out.println("Iniciando impressão");
 		for(Usuario usu: dao.buscar()) {
 			System.out.println("ID: " +usu.getId());
 			System.out.println("Nome: " +usu.getNome());
